@@ -1,44 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon">
+
   <title>Frontend Mentor | Tip calculator app</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
+
 <body>
-
-  Bill
-
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
-
-  Number of People
-
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+  <div class="container">
+    <!-- <div class="sub-container calculator"> -->
+    <form class="sub-container calculator" name="calculator">
+      <div class="bill">
+        <p>Bill</p>
+        <input type="text" class="text-form" value="0" name="billing-amount" id="billing-amount">
+      </div>
+      <div>
+        <p>Select Tip %</p>
+        <div class="discount-button-group">
+          <div><input type="radio" class="discount-button" value="5" name="discount" id="discount"><span>5%</span></input></div>
+          <div><input type="radio" class="discount-button" value="10" name="discount" id="discount"><span>10%</span></input></div>
+          <div><input type="radio" class="discount-button" value="15" name="discount" id="discount"><span>15%</span></input></div>
+          <div><input type="radio" class="discount-button" value="25" name="discount" id="discount"><span>25%</span></input></div>
+          <div><input type="radio" class="discount-button" value="50" name="discount" id="discount"><span>50%</span></input></div>
+          <div><input type="text" class="text-form text-form-button" value="Custom" name="custom-discount" id="custom-discount"></input></div>
+        </div>
+      </div>
+      <div class="people-count">
+        <p>Number of People</p>
+        <input type="text" class="text-form" value="0" name="people-count" id="people-count">
+      </div>
+    </form>
+    <!-- </div> -->
+    <div class="sub-container tip">
+      <div class="result-container">
+        <div>
+          <p>Tip Amount</p>
+          <p>/ person</p>
+        </div>
+        <p class="price">$<span id="tip-pricing">0.00</span></p>
+      </div>
+      <div class="result-container">
+        <div>
+          <p>Total</p>
+          <p>/ person</p>
+        </div>
+        <p class="price">$<span id="total">0.00</span></p>
+      </div>
+      <div id="reset-button" class="reset-button">
+        <p>Reset</p>
+      </div>
+    </div>
   </div>
+  <script src="script.js"></script>
 </body>
+
 </html>
