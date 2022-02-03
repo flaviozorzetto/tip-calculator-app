@@ -35,6 +35,10 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
+.sub-container div {
+    width: 100%;
+}
+
 .result-container {
     display: flex;
     justify-content: space-between;
@@ -62,10 +66,13 @@ body {
     background-color: hsl(172, 67%, 45%);
 }
 
+.reset-button:hover {
+    background-color: #c5e4e7;;
+}
+
 .tip {
     display: flex;
     flex-flow: column;
-    margin-left: 10px;
     padding: 40px;
     background-color: hsl(183, 100%, 15%);
     border-radius: 20px;
@@ -78,7 +85,6 @@ body {
 
 .calculator {
     justify-content: space-around;
-    margin-right: 10px;
 }
 
 .text-form {
@@ -98,7 +104,7 @@ body {
 }
 
 .text-form:focus {
-    border: 3px solid hsl(172, 67%, 45%);
+    border: 2px solid hsl(172, 67%, 45%);
     padding: 0 27px
 }
 
@@ -107,28 +113,27 @@ body {
     background-color: hsl(189, 41%, 97%);
 }
 
+.people-count {
+    position: relative;
+}
+
 .people-count .text-form {
     background: url(images/icon-person.svg) no-repeat 25px;
     background-color: hsl(189, 41%, 97%);
 }
 
-
 .discount-button-group {
     display: flex;
     flex-flow: row wrap;
+    gap: 15px;
     width: 100%;
     margin-top: 10px;
 }
 
 .discount-button-group div{
     position: relative;
-    margin: 5px 10px;
     width: 116px;
     height: 49px;
-}
-
-.discount-button-group div:first-child, .discount-button-group div:nth-child(4) {
-    margin-left: 0;
 }
 
 .discount-button {
@@ -171,6 +176,7 @@ body {
 .text-form-button {
     width: 100%;
     margin: auto;
+    color: hsl(186, 14%, 43%);
     padding: 0;
     text-align: center;
 }
@@ -179,3 +185,57 @@ body {
     padding: 0;
 }
 
+.error-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.error-container .people-error-title {
+    margin-right: 34px;
+    display: none;
+    color: #fa8975;
+}
+
+.error-container.show-error .people-error-title {
+    display: inline;
+}
+
+.error-container.show-error + #people-count {
+    border: 2px solid #fa8975;
+}
+
+@media screen and (max-width: 950px) {
+    .container {
+        flex-flow: column;
+        width: 370px;
+        height: auto;
+        padding: 20px 30px;
+    }
+
+    .sub-container {
+        width: 100%;
+    }
+
+    .sub-container > div {
+        margin-bottom: 25px;
+    }
+
+    .text-form {
+        width: 100%;
+    }
+
+    .discount-button-group div{
+        position: relative;
+        width: 47%;
+        height: 49px;
+    }
+
+    .tip {
+        padding: 30px 25px 0px 25px;
+    }
+
+    .error-container .people-error-title {
+        margin: 0;
+    }
+
+}

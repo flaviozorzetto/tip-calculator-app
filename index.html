@@ -16,7 +16,7 @@
 <body>
   <div class="container">
     <!-- <div class="sub-container calculator"> -->
-    <form class="sub-container calculator" name="calculator">
+    <form class="sub-container calculator" name="calculator" autocomplete="off">
       <div class="bill">
         <p>Bill</p>
         <input type="text" class="text-form" value="0" name="billing-amount" id="billing-amount">
@@ -33,7 +33,10 @@
         </div>
       </div>
       <div class="people-count">
-        <p>Number of People</p>
+        <div class="error-container">
+          <p>Number of People</p>
+          <span class="people-error-title">Can't be zero</span>
+        </div>
         <input type="text" class="text-form" value="0" name="people-count" id="people-count">
       </div>
     </form>

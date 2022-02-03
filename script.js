@@ -7,6 +7,7 @@ const resetButton = document.getElementById("reset-button");
 
 const price_tip = document.getElementById("tip-pricing");
 const price_total = document.getElementById("total");
+const errorContainer = document.getElementsByClassName("error-container")[0];
 
 let cancelled = false;
 let timerDelay
@@ -27,10 +28,29 @@ function mainReset () {
 
 function customDiscountValidator () {
     const customDiscount = document.getElementById("custom-discount").value
-    if(customDiscount.length == 0 || /[^0-9]/gi.test(customDiscount)){
+    if(customDiscount.length == 0 || /[^\.0-9]/gi.test(customDiscount)){
         return true
     }
     return false
+}
+
+const errorClass = " show-error"
+function showPeopleError() {
+    if(!errorContainer.className.includes(errorClass)){
+        errorContainer.className += errorClass
+    }
+}
+
+function removePeopleError() {
+    if(errorContainer.className.includes(errorClass)){
+        errorContainer.className = errorContainer.className.replace(errorClass, "")
+    }
+}
+
+function validatePeopleNull(e) {
+    if(e.value == "0") {
+        showPeopleError();
+    }
 }
 
 function resetCustom () {
@@ -46,6 +66,15 @@ function resetZero (e) {
         if(e.value == ""){
             resetZero(e)
         }
+        if(e == numPeopleInput){
+            validatePeopleNull(e);
+        }
+    })
+    e.addEventListener("focusin", () => {
+        if(e.value == "0"){
+            e.value = ""
+        }
+        removePeopleError();
     })
 })
 
@@ -81,6 +110,10 @@ function renderResult () {
             }
         })
     }
+
+    e.addEventListener("focusout", () => {
+        renderResult()
+    })
 
     e.addEventListener("keydown", () => {
         clearTimeout(timerDelay);
